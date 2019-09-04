@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: eureka-provider
+
+  cloud:
+    config:
+      name: eureka-provider
+      profile: dev
+      label: master
+      uri: http://localhost:8082
+      enabled: true
