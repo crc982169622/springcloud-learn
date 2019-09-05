@@ -11,5 +11,10 @@ spring:
           uri: https://github.com/crc982169622/config-repo.git
           username: crc982169622
           password: chen982169622
-          search-paths: /eureka-provider
+          search-paths: /eureka-provider,/eureka-consumer
           basedir: E:\idea\config-repo
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka/

@@ -1,3 +1,8 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka/
+
 spring:
   application:
     name: eureka-provider
@@ -7,5 +12,6 @@ spring:
       name: eureka-provider
       profile: dev
       label: master
-      uri: http://localhost:8082
-      enabled: true
+      discovery:
+        enabled: true
+        service-id: springcloud-config
