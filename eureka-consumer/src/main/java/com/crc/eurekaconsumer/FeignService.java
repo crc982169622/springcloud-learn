@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @version：
  * @date: 2019/9/5 23:15
  **/
-@FeignClient(value = "eureka-provider")
+@FeignClient(value = "eureka-provider", fallback = FeignFallBack.class)
 public interface FeignService {
 
     @RequestMapping("/test")

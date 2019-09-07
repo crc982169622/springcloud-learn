@@ -17,3 +17,6 @@ spring:
         enabled: true
         service-id: springcloud-config
 
+feign:
+  hystrix:
+    enabled: true
