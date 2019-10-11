@@ -1,0 +1,28 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: springcloud-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          #启用基于服务发现的路由定位
+          enabled: true
+          #启用服务实例id名称小写支持
+          lower-case-service-id: true
+      routes:
+      - id: eureka-consumer
+        uri: lb://eureka-consumer
+        predicates:
+        - Path=/eureka-consumer/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka/
+
+
+
+
