@@ -13,16 +13,35 @@ spring:
           #启用服务实例id名称小写支持
           lower-case-service-id: true
       routes:
-      - id: eureka-consumer
-        uri: lb://eureka-consumer
+      - id: eureka-provider
+        uri: lb://eureka-provider
         predicates:
-        - Path=/eureka-consumer/**
+        - Path=/eureka-provider/**
+        filters:
+        - name: Hystrix
+          args:
+            name: fallbackcmd
+            fallbackUri: forward:/fallbackController
+
+hystrix.command.fallbackcmd.execution.isolation.thread.timeoutInMilliseconds: 1000
+
+
+
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        timeout:
+#          enabled: true
+#    fallbackcmd:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 1000
+
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8081/eureka/
-
-
-
 
